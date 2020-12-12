@@ -25,5 +25,15 @@ namespace StudentApp
            List<STUDENT_DETAIL> allStudent = entity.STUDENT_DETAIL.ToList();
             return allStudent;
         }
+        public STUDENT_DETAIL updateOperation(string name)
+        {
+            STUDENT_DETAIL sDetail = entity.STUDENT_DETAIL.Where(s => s.NAME == name).SingleOrDefault();
+            return sDetail;
+        }
+        public void SaveUpdate(STUDENT_DETAIL s)
+        {
+            STUDENT_DETAIL newStudent = entity.STUDENT_DETAIL.Where(c => c.ID == s.ID).SingleOrDefault();
+            entity.SaveChanges();
+        }
     }
 }

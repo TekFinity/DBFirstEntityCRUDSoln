@@ -80,6 +80,34 @@ namespace StudentApp
         }
         private static void UpdateStudent(EdmOperation obj)
         {
+            Console.WriteLine("Enter student name :");
+            var name =Convert.ToString(Console.ReadLine());
+            var sData = obj.updateOperation(name);
+            student sd = new student();
+            sd.ID = sData.ID;
+            sd.NAME = sData.NAME;
+            sd.BRANCH = sData.BRANCH;
+            sd.DIVISION = sData.DIVISION;
+            sd.SCORE = sData.SCORE;
+            Console.WriteLine(sd.ID + "  " + sd.NAME + "  " + sd.BRANCH + "  " + sd.DIVISION + "  " + sd.SCORE);
+            Console.WriteLine("Enter new Student Details-");
+            Console.Write("Enter Name-");
+            sd.NAME = Convert.ToString(Console.ReadLine());
+            Console.Write("Enter Branch-");
+            sd.BRANCH = Convert.ToString(Console.ReadLine());
+            Console.Write("Enter Score-");
+            sd.SCORE = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Div-");
+            sd.DIVISION = Console.ReadLine();
+            Console.ReadLine();
+            sData.ID = sd.ID;
+            sData.NAME = sd.NAME;
+            sData.BRANCH = sd.BRANCH;
+            sData.DIVISION = sd.DIVISION;
+            sData.SCORE = sd.SCORE;
+
+            obj.SaveUpdate(sData);
+
 
         }
         private static void DeleteStudent(EdmOperation obj)
